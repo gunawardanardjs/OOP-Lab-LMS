@@ -18,7 +18,7 @@ public class Member{
     }
 
     public void setMemberId(String memberId) {
-        if(memberId == null){
+        if(memberId == null || memberId.isBlank()){
             throw new IllegalArgumentException("memberId cannot be Empty");
         }else{
             this.memberId = memberId;
@@ -30,7 +30,7 @@ public class Member{
     }
 
     public void setName(String name) {
-        if(name == null){
+        if(name == null || name.isBlank()){
             throw new IllegalArgumentException("Name cannot be Empty");
         }else{
             this.name = name;
@@ -42,15 +42,15 @@ public class Member{
     }
 
     public void setBorrowedCount(int borrowedCount) {
-        if(borrowedCount < 0){
-            throw new IllegalArgumentException("Max borrowed count cannot be below than 0");
-        }else{
-            this.borrowedCount = borrowedCount;
-        }
+        this.borrowedCount = borrowedCount;
     }
 
     public void setMaxBorrowLimit(int maxBorrowLimit) {
-        this.maxBorrowLimit = maxBorrowLimit;
+        if(maxBorrowLimit < 0){
+            throw new IllegalArgumentException("Max borrowed count cannot be below than 0");
+        }else{
+            this.maxBorrowLimit = borrowedCount;
+        }
     }
 
     public int getBorrowedCount() {
