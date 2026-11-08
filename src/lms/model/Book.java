@@ -43,7 +43,7 @@ public class Book{
 
     public void setIsbn(String isbn) {
         if(isbn == null){
-            System.out.println("Isbn cannot be empty");
+            System.out.println("ISBN cannot be empty");
         }else{
             this.isbn = isbn;
         }
