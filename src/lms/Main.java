@@ -9,8 +9,8 @@ public class Main {
         Library library = new Library();
 
         try{
-            library.addBook(new Book("Clean Code", "Robert C. Martin", "978-0132350884"));
-            library.addBook(new Book("Effective Java", "Joshua Bloch", "978-0134685991"));
+            library.addBook(new Book("B001","Clean Code", "Robert C. Martin", "978-0132350884"));
+            library.addBook(new Book("B002","Effective Java", "Joshua Bloch", "978-0134685991"));
 
             library.addMember(new Member("M001", "Kasun", 4));
             library.addMember(new Member("M002", "Sahan", 3));
@@ -22,7 +22,7 @@ public class Main {
         }
 
         try{
-            library.addBook(new Book("Clean Code", "", "978-0132350884"));
+            library.addBook(new Book("B003","Clean Code", "", "978-0132350884"));
         }catch(IllegalArgumentException e){
             System.out.println("Rejected Invalid Book : " + e.getMessage());
         }
@@ -36,7 +36,7 @@ public class Main {
         System.out.println("Finding a book via ISBM");
         System.out.println(library.findBookByIsbn("978-0132350884"));
 
-        library.getBooks().add(new Book("Shelok", "ABC", "14564"));
+        library.getBooks().add(new Book("B004","Shelok", "ABC", "14564"));
 
     }
 }

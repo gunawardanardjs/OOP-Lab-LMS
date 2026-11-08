@@ -1,12 +1,12 @@
 package lms.model;
 
-public class Book{
-    private String title;
+public class Book extends LibraryItem {
     private String author;
     private String isbn;
     private boolean isBorrowed;
 
-    public Book(String title, String author, String isbn){
+    public Book(String id, String title, String author, String isbn){
+        super(id, title);
         setTitle(title);
         setAuthor(author);
         setBorrowed(isBorrowed);
@@ -14,23 +14,19 @@ public class Book{
     }
 
     public String getTitle() {
-        return title;
+        return super.getTitle();
     }
 
     public void setTitle(String title) {
         if(title == null || title.isBlank()){
             throw new IllegalArgumentException("Title cannot be empty");
         }else{
-            this.title = title;
+            super.setTitle(title);
         }
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
     public void setAuthor(String author) {
-        if(author == null || author.isBlank()){
+        if(checkValidate(author)){
             throw new IllegalArgumentException("Author cannot be empty");
         }else{
             this.author = author;
@@ -42,10 +38,18 @@ public class Book{
     }
 
     public void setIsbn(String isbn) {
-        if(isbn == null || isbn.isBlank()){
+        if(!checkValidate(isbn)){
             throw new IllegalArgumentException("ISBN cannot be empty");
         }else{
             this.isbn = isbn;
+        }
+    }
+
+    public boolean checkValidate(String text){
+        if(text == null || text.isBlank()){
+            return false;
+        }else{
+            return true;
         }
     }
 
@@ -54,17 +58,13 @@ public class Book{
     }
 
     public void setBorrowed(boolean borrowed) {
-        if(borrowed != true && borrowed != false){
-            throw new IllegalArgumentException("IsBorrowed cannot be empty");
-        }else{
-            isBorrowed = borrowed;
-        }
+        isBorrowed = borrowed;
     }
 
     @Override
     public String toString() {
         return "Book{" +
-                "title='" + title + '\'' +
+                "title='" + getTitle() + '\'' +
                 ", author='" + author + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", isBorrowed=" + isBorrowed +
