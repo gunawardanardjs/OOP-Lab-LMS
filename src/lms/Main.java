@@ -33,5 +33,8 @@ public class Main {
             System.out.println("Error : " + e.getMessage());
         }
 
+        System.out.print("\nSearch a Book by ISBN : ");
+        System.out.println(library.findBookByIsbn("978-0132350884"));
+
     }
 }
