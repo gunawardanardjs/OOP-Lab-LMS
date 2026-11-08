@@ -24,14 +24,19 @@ public class Main {
         try{
             library.addBook(new Book("Clean Code", "", "978-0132350884"));
         }catch(IllegalArgumentException e){
-            System.out.println("Error : " + e.getMessage());
+            System.out.println("Rejected Invalid Book : " + e.getMessage());
         }
 
         try{
             library.addMember(new Member("M001", "Kasun", -4));
         }catch(IllegalArgumentException e){
-            System.out.println("Error : " + e.getMessage());
+            System.out.println("Rejected Invalid Member : " + e.getMessage());
         }
+
+        System.out.println("Finding a book via ISBM");
+        System.out.println(library.findBookByIsbn("978-0132350884"));
+
+        library.getBooks().add(new Book("Shelok", "ABC", "14564"));
 
     }
 }
