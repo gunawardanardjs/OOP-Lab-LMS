@@ -40,13 +40,13 @@ public class Library{
         return members;
     }
 
-    public Book findBookByIsbn(String isbn){
+    public Book findBookByIsbn(String Isbn){
         for(Book b : books){
-            if(b.getIsbn() == isbn){
-                System.out.print("Found : ");
+            if(Isbn == b.getIsbn()){
+                System.out.println("Book found");
                 return b;
             }else{
-                System.out.println("Not Found");
+                System.out.println("Book Not Found");
                 return null;
             }
         }
