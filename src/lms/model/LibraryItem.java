@@ -1,6 +1,6 @@
 package lms.model;
 
-public class LibraryItem {
+public abstract class LibraryItem {
     private String id;
     private String title;
     private boolean isBorrowed;
