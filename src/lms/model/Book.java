@@ -7,7 +7,6 @@ public class Book extends LibraryItem {
 
     public Book(String id, String title, String author, String isbn){
         super(id, title);
-        setTitle(title);
         setAuthor(author);
         setBorrowed(isBorrowed);
         setIsbn(isbn);
@@ -18,7 +17,7 @@ public class Book extends LibraryItem {
     }
 
     public void setTitle(String title) {
-        if(title == null || title.isBlank()){
+        if(!checkValidate(title)){
             throw new IllegalArgumentException("Title cannot be empty");
         }else{
             super.setTitle(title);
@@ -26,7 +25,7 @@ public class Book extends LibraryItem {
     }
 
     public void setAuthor(String author) {
-        if(checkValidate(author)){
+        if(!checkValidate(author)){
             throw new IllegalArgumentException("Author cannot be empty");
         }else{
             this.author = author;
