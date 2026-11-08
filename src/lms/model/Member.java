@@ -19,7 +19,7 @@ public class Member{
 
     public void setMemberId(String memberId) {
         if(memberId == null){
-            System.out.println("memberId cannot be Empty");
+            throw new IllegalArgumentException("memberId cannot be Empty");
         }else{
             this.memberId = memberId;
         }
@@ -31,7 +31,7 @@ public class Member{
 
     public void setName(String name) {
         if(name == null){
-            System.out.println("Name cannot be Empty");
+            throw new IllegalArgumentException("Name cannot be Empty");
         }else{
             this.name = name;
         }
@@ -43,7 +43,7 @@ public class Member{
 
     public void setBorrowedCount(int borrowedCount) {
         if(borrowedCount < 0){
-            System.out.println("Max borrowed count cannot be below than 0");
+            throw new IllegalArgumentException("Max borrowed count cannot be below than 0");
         }else{
             this.borrowedCount = borrowedCount;
         }

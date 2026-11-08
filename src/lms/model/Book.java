@@ -19,7 +19,7 @@ public class Book{
 
     public void setTitle(String title) {
         if(title == null){
-            System.out.println("Title cannot be empty");
+            throw new IllegalArgumentException("Title cannot be empty");
         }else{
             this.title = title;
         }
@@ -31,7 +31,7 @@ public class Book{
 
     public void setAuthor(String author) {
         if(author == null){
-            System.out.println("Author cannot be empty");
+            throw new IllegalArgumentException("Author cannot be empty");
         }else{
             this.author = author;
         }
@@ -42,8 +42,8 @@ public class Book{
     }
 
     public void setIsbn(String isbn) {
-        if(isbn == null){
-            System.out.println("ISBN cannot be empty");
+        if(isbn == null || isbn.isBlank()){
+            throw new IllegalArgumentException("ISBN cannot be empty");
         }else{
             this.isbn = isbn;
         }
@@ -55,9 +55,19 @@ public class Book{
 
     public void setBorrowed(boolean borrowed) {
         if(borrowed != true && borrowed != false){
-            System.out.println("IsBorrowed cannot be empty");
+            throw new IllegalArgumentException("IsBorrowed cannot be empty");
         }else{
             isBorrowed = borrowed;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", isBorrowed=" + isBorrowed +
+                '}';
     }
 }
