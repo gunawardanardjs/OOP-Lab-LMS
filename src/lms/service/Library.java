@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Library{
-    private final List<Book> books = new ArrayList<>();
     private final List<LibraryItem> items = new ArrayList<>();
     private final List<Member> members = new ArrayList<>();
 
@@ -61,16 +60,17 @@ public class Library{
         return members;
     }
 
-    public Book findBookByIsbn(String Isbn){
-        for(Book b : books){
-            if(Isbn == b.getIsbn()){
-                System.out.println("Book found");
-                return b;
-            }else{
-                System.out.println("Book Not Found");
-                return null;
+    public Book findBookByIsbn(String isbn) {
+        for (LibraryItem item : items) {
+            if (item instanceof Book) {
+                Book book = (Book) item;
+                if (isbn != null && isbn.equals(book.getIsbn())) {
+                    System.out.println("Book found");
+                    return book;
+                }
             }
         }
+        System.out.println("Book Not Found");
         return null;
     }
 
