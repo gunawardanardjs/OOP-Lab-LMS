@@ -27,6 +27,15 @@ public class Library{
         System.out.println("Added the DVD " + dvd.getTitle());
     }
 
+    public void streamIfPossible(LibraryItem item){
+        if(item instanceof DVD){
+            DVD dvd = (DVD) item;
+            System.out.println("Streaming \"" + dvd.getTitle() + "\" (" + dvd.getDurationMinutes() + " mins)" );
+        }else{
+            System.out.println("\"" + item.getTitle() + "\" cannot be streamed - it isn't a DVD");
+        }
+    }
+
     public void addMember(Member member){
         members.add(member);
     }
@@ -39,7 +48,7 @@ public class Library{
     }*/
 
     public void listItems(){
-        System.out.println("-----Items in the Library-----");
+        System.out.println("\n-----Items in the Library-----");
         for(LibraryItem item : items){
             System.out.println(item);
         }
@@ -75,10 +84,12 @@ public class Library{
     }
 
     public void printAllLateFees(int daysLate) {
-        System.out.println("Late fees if " + daysLate + " days late : ");
+        System.out.println("\n-----Late fees if " + daysLate + " days late-----");
         for (LibraryItem item : items) {
             System.out.println(item.getTitle() + " : " + item.calculateLateFee(daysLate));
+            item.getClass().getSimpleName();
         }
+        System.out.println();
     }
 
 }
